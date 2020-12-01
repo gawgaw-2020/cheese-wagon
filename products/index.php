@@ -1,5 +1,5 @@
-<?php include(dirname(__FILE__).'/assets/_inc/_head.php'); ?>
-<?php include(dirname(__FILE__).'/assets/_inc/_header.php'); ?>
+<?php include(dirname(__FILE__).'/../assets/_inc/_head.php'); ?>
+<?php include(dirname(__FILE__).'/../assets/_inc/_header.php'); ?>
 
   <main>
     <section class="products">
@@ -73,4 +73,4 @@
       </div>
     </section>
   </main>
-  <?php include(dirname(__FILE__).'/assets/_inc/_footer.php'); ?>
+  <?php include(dirname(__FILE__).'/../assets/_inc/_footer.php'); ?>
