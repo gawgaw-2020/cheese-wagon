@@ -1,0 +1,176 @@
+.header {
+  position: sticky;
+  background-color: #fff;
+  top: 0;
+  z-index: 9999;
+  height: 60px;
+  box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 6px 0px;
+  &__inner {
+    max-width: 1350px;
+    margin: 0 auto;
+    display: flex;
+  }
+  &__logo {
+    max-width: 60px;
+    padding-top: 5px;
+    margin-left: 16px;
+    position: relative;
+    h1 {
+      width: 100%;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .header-logo {
+      margin-top: -5px;
+    }
+  }
+  &__right {
+    margin-left: auto;
+    width: 200px;
+    p {
+      padding: 0;
+      width: 100%;
+      height: 45px;
+      border-radius: 0px;
+      // cursor: pointer;
+      a {
+        color: #999;
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        line-height: 45px;
+      }
+      .btn-01 {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.gnavi {
+  height: 60px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  &__list {
+    display: flex;
+    height: 100%;
+  }
+  &__item {
+    font-weight: bold;
+    padding: 0 2em;
+    background-image: linear-gradient(to right, rgba(0,0,0,0) 50%, #F0F6FA 50%);
+    background-position: 0 50%;
+    background-size: 200% auto;
+    transition: 0.3s;
+    cursor: pointer;
+    &:hover {
+      background-position: -100% 0;
+    }
+    &--active {
+      pointer-events: none;
+      position: relative;
+      &:before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: #0086D3;
+        position: absolute;
+        top: 5px;
+        left: 45%;
+      }
+    }
+  }
+  &__link {
+    display: inline-block;
+    line-height: 60px;
+    text-decoration: none;
+    color: inherit;
+    transition: .2s;
+    span {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.footer {
+  display: none;
+}
+
+/* ------------------------------------ */
+/* タブレット用デザイン */
+/* ------------------------------------ */
+@media screen and (max-width: 1024px) {
+  
+
+.gnavi {
+  display: none;
+}
+
+.footer {
+  display: block;
+  margin-bottom: 48px;
+  z-index: 99999;
+}
+.global-nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: white;
+}
+.nav-list {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.nav-item {
+  display: table-cell;
+  border: solid 1px gray;
+  padding: 4px 0px;
+}
+.nav-item a {
+  text-decoration: none;
+}
+.nav-item i {
+  color: #555;
+  display: block;
+  font-size: 24px;
+}
+.nav-item a span {
+  display: block;
+  font-size: 10px;
+}  
+  
+}
+
+/* ------------------------------------ */
+/* ▼スマホ用デザイン */
+/* ------------------------------------ */
+@media screen and (max-width: 768px) {
+  .header {
+    &__logo {
+      margin-left: 60px;
+    }
+    &__right {
+      margin-left: auto;
+      width: 200px;
+      display: flex;
+      height: 60px;
+      p {
+        width: 100%;
+        height: 60px;
+        padding: 0;
+        line-height: 60px;
+        a {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  
+}
