@@ -22,3 +22,9 @@ img {
   width: 100%; 
   height: auto
 }
+
+@keyframes onAutoFillStart { from {} to {}}
+input:-webkit-autofill {
+animation-name: onAutoFillStart;
+transition: background-color 50000s ease-in-out 0s;
+}
