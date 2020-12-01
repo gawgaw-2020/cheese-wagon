@@ -710,4 +710,135 @@
   }
 }
 
+.cart {
+  color: #707070;
+  &__list {
+    max-width: 400px;
+    margin: 0 auto 16px;
+    @include mq(lg) {
+      max-width: 1200px;
+    }
+    .cart-item {
+      display: grid;
+      grid-template-rows: 166px 0.5fr 0.5fr;
+      grid-template-columns: 166px 1fr;
+      padding: 3.2rem 0;
+      border-top: 1px solid #707070;
+      &:last-child {
+        border-bottom: 1px solid #707070;
+      }
+      @include mq(lg) {
+        display: flex;
+        width: 100%;
+      }
+      &__image {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        @include mq(lg) {
+          width: 20%;
+        }  
+      }
+      &__title {
+        grid-row: 1 / 2;
+        grid-column: 2 / 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.8rem;
+        @include mq(lg) {
+          width: 35%;
+          padding: 0.8rem 3rem 0.8rem 2rem;
+        }  
+      }
+      &__kazu {
+        grid-row: 2 / 4;
+        grid-column: 1 / 2;
+        padding: 1.5rem;
+        @include mq(lg) {
+          width: 20%;
+          display: flex;
+          align-items: center;
+        }
+        input {
+          width: 65px;
+          height: 43px;
+          padding-right: 1rem;
+          margin-right: 10px;
+          text-align: right;
+        }
+      }
+      &__price {
+        grid-row: 2 / 4;
+        grid-column: 2 / 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.8rem;
+        padding-left: 1.6rem;
+        @include mq(lg) {
+          width: 15%;
+        }  
+      }
+      &__delete {
+        grid-row: 2 / 4;
+        grid-column: 3 / 4;
+        min-width: 80px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        @include mq(lg) {
+          width: 10%;
+        }
+        input {
+          vertical-align: middle;
+          width: 18px;
+          height: 18px;
+          position: relative;
+          top: -3px;
+        }
+      }
+    }
+  }
+  &__footer {
+    @include mq(lg) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+  &__sum {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: right;
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+  }
+  &__operation {
+    font-size: 1.4rem;
+    margin: 0 auto 80px;
+    @include mq(lg) {
+      font-size: 2rem;
+    }
+  }
+  &__btns {
+    width: 90%;
+    margin: 0 auto 117px;
+    @include mq() {
+      display: flex;
+      justify-content: center;
+    }
+    .btn {
+      @include mq() {
+        width: 35%;
+      }
+    }
+    .btn--ok {
+      margin-bottom: 24px;
+      @include mq() {
+        margin-bottom: 0;
+        margin-right: 24px;
+      }  
+    }
+  }
+}
 
