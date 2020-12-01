@@ -34,7 +34,7 @@
           <li><a class="js-gb-menu-item" href="/products/" target="_self">Items<span>-商品一覧-</span></a></li>
           <li><a class="js-gb-menu-item" href="/index.php#introduce" target="_self">Concept<span>-こだわり-</span></a></li>
           <li><a class="js-gb-menu-item" href="/cart/" target="_self">Cart<span>-ショッピングカート-</span></a></li>
-          <li><a class="js-gb-menu-item" href="/user-login/" target="_blank">Login<span>-会員ログイン-</span></a></li>
+          <li><a class="js-gb-menu-item" href="/user-login/">Login<span>-会員ログイン-</span></a></li>
         </ul>
       </nav>
     </div>
