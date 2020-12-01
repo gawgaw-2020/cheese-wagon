@@ -109,6 +109,27 @@ img {
   height: auto;
 }
 
+@-webkit-keyframes onAutoFillStart {
+  from {
+  }
+  to {
+  }
+}
+
+@keyframes onAutoFillStart {
+  from {
+  }
+  to {
+  }
+}
+
+input:-webkit-autofill {
+  -webkit-animation-name: onAutoFillStart;
+          animation-name: onAutoFillStart;
+  -webkit-transition: background-color 50000s ease-in-out 0s;
+  transition: background-color 50000s ease-in-out 0s;
+}
+
 .section-heading {
   font-size: 2.4rem;
   text-align: center;
@@ -233,6 +254,73 @@ img {
 .anchor-lg {
   padding-top: 160px;
   margin-top: -160px;
+}
+
+.input-box {
+  height: 40px;
+  position: relative;
+  z-index: 0;
+  margin-bottom: 30px;
+}
+
+.input-box__label {
+  border-radius: 12px;
+  position: absolute;
+  z-index: 801;
+  top: -18px;
+  left: -11px;
+  padding: 0 1em;
+  border: none;
+}
+
+.input-box__input {
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 1.6rem;
+  padding: 0 0.5em;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #ddd;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 1px solid #707070;
+}
+
+.input-box__input:focus {
+  outline: none;
+}
+
+.show-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.input-box .show-btn {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  background: rgba(229, 229, 229, 0);
+}
+
+.btn-input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.btn-label {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.input-box .btn-label {
+  width: 30px;
+  text-align: center;
 }
 
 .header {
@@ -1982,6 +2070,52 @@ footer .copyright {
   .cart__btns .btn--ok {
     margin-bottom: 0;
     margin-right: 24px;
+  }
+}
+
+.login-background {
+  background-image: url(/assets/image/common/kv-sp02@2x.jpg);
+  padding: 2.5rem 0 6.5rem;
+  height: calc(100vh - 60px);
+  background-size: cover;
+}
+
+.login-background .login-form {
+  background-color: rgba(227, 227, 227, 0.8);
+  padding: 4rem 2rem;
+  max-width: 900px;
+}
+
+@media screen and (min-width: 768px) {
+  .login-background .login-form {
+    margin: 0 auto;
+    padding: 4rem 8rem;
+  }
+}
+
+.login-background .login-form__title {
+  margin-bottom: 40px;
+}
+
+.login-background .login-form .input-box {
+  margin-bottom: 40px;
+}
+
+.login-background .login-form__text {
+  margin-bottom: 24px;
+}
+
+.login-background .login-form .submit input {
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .login-background .login-form .submit input {
+    width: 50%;
+    margin: 0 auto;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -106,3 +106,57 @@
   margin-top: -160px;
 }
 
+.input-box {
+  height: 40px;
+  position: relative;
+  z-index: 0;
+  margin-bottom: 30px;
+  &__label {
+    border-radius: 12px;
+    position: absolute;
+    z-index: 801;
+    top: -18px;
+    left: -11px;
+    padding: 0 1em;
+    border: none;
+  }
+  &__input {
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 1.6rem;
+    padding: 0 0.5em;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 1px solid #707070;
+    &:focus {
+      outline: none;
+    }
+  }
+} 
+.show-btn {
+  display: flex;
+  align-items: center;
+}
+.input-box .show-btn {
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  background: rgba(229, 229, 229, 0);
+}
+.btn-input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.btn-label {
+  font-size: 18px;
+  cursor: pointer;
+}
+.input-box .btn-label {
+  width: 30px;
+  text-align: center;
+}

@@ -842,3 +842,37 @@
   }
 }
 
+.login-background {
+  background-image: url(/assets/image/common/kv-sp02@2x.jpg);
+  padding: 2.5rem 0 6.5rem;
+  height: calc(100vh - 60px);
+  background-size: cover;
+  .login-form {
+    background-color: rgba(227, 227, 227, 0.8);
+    padding: 4rem 2rem;
+    max-width: 900px;
+    @include mq() {
+      margin: 0 auto;
+      padding: 4rem 8rem;
+    }
+    &__title {
+      margin-bottom: 40px;
+    }
+    .input-box {
+      margin-bottom: 40px;
+    }
+    &__text {
+      margin-bottom: 24px;
+    }
+    .submit {
+      input {
+        width: 100%;
+        justify-content: center;
+        @include mq() {
+          width: 50%;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
