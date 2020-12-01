@@ -15,7 +15,7 @@
   <!-- stylesheet -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- fontawesome -->
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/efb98c9b55.js" crossorigin="anonymous"></script>
   <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
   <!-- swiperのcss -->
