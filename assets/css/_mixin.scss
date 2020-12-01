@@ -1,23 +1,53 @@
 // color palette
 
-$color-pure-white: #ffffff;
-$color-white: #f7f7f7;
-$color-black: #333333;
-$color-blue: #36B0DF;
-$color-green: #86C833;
-$color-red: #FF5644;
+$color-header__background: #333;
+$color-header__text: #fff;
+$color-header__ham-icon-background: #fff;
 
-$color-light-side__text: #ebcd29;
-$color-light-side__border: #c5c56f;
-$color-light-side__background: rgba(214, 224, 129, 0.123);
+$color-fv-box__background: rgba(0, 0, 0, 0.8);
+$color-fv-box__text: #fff;
 
-$color-dark-side__text: #ca0000;
-$color-dark-side__border: #D1382C;
-$color-dark-side__background: rgba(226, 62, 62, 0.137);
+$color-introduce-section__background: rgba(255, 254, 235, 0.6);
 
-$color-droid__text: #23c2ce;
-$color-droid__border: #2cb0d1;
-$color-droid__background: rgba(62, 188, 226, 0.137);
+$color-item-list__text: #707070;
+
+$color-profile-card__border: #e3e3e3;
+$color-profile-card__background: #e3e3e3;
+
+$color-strength-item__border: #707070;
+
+$color-detail__price-text: #777;
+
+$color-detail-more__background: rgba(255, 254, 235, 0.6);
+
+$color-carousel__text:  #978332;
+
+$color-btn-ok__background: #479E9F;
+$color-btn-ok__text: #fff;
+$color-btn-ok__border: transparent;
+$color-btn-back__background: #333;
+$color-btn-back__text: #fff;
+$color-btn-back__border: transparent;
+$color-btn-detail__background: transparent;
+$color-btn-detail__text: #707070;
+$color-btn-detail__border: #707070;
+$color-btn-operationcart__background: #fff;
+$color-btn-operationcart__text: #479E9F;
+$color-btn-operationcart__border: #479E9F;
+
+$color-labal-detail__background: #978332;
+$color-labal-detail__text: #fff;
+$color-labal-detail__border: #707070;
+$color-labal-current__background: #fff;
+$color-labal-current__text: #978332;
+$color-labal-current__border: #978332;
+$color-labal-not-active__background: #e3e3e3;
+$color-labal-not-active__text: #fff;
+
+$color-footer__background: #e3e3e3;
+$color-footer__text: #333;
+$color-footer__border: #333;
+
 
 // break point
 

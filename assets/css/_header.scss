@@ -1,176 +1,203 @@
 .header {
+  height: 60px;
   position: sticky;
-  background-color: #fff;
   top: 0;
   z-index: 9999;
-  height: 60px;
-  box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 6px 0px;
-  &__inner {
-    max-width: 1350px;
-    margin: 0 auto;
+  background-color: $color-header__background;
+  .header-inner {
     display: flex;
-  }
-  &__logo {
-    max-width: 60px;
-    padding-top: 5px;
-    margin-left: 16px;
     position: relative;
-    h1 {
-      width: 100%;
-      font-size: 1rem;
-      text-align: center;
-    }
-    .header-logo {
-      margin-top: -5px;
-    }
-  }
-  &__right {
-    margin-left: auto;
-    width: 200px;
-    p {
-      padding: 0;
-      width: 100%;
-      height: 45px;
-      border-radius: 0px;
-      // cursor: pointer;
-      a {
-        color: #999;
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        line-height: 45px;
-      }
-      .btn-01 {
-        color: #fff;
-      }
-    }
-  }
-}
-
-.gnavi {
-  height: 60px;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  &__list {
-    display: flex;
-    height: 100%;
-  }
-  &__item {
-    font-weight: bold;
-    padding: 0 2em;
-    background-image: linear-gradient(to right, rgba(0,0,0,0) 50%, #F0F6FA 50%);
-    background-position: 0 50%;
-    background-size: 200% auto;
-    transition: 0.3s;
-    cursor: pointer;
-    &:hover {
-      background-position: -100% 0;
-    }
-    &--active {
-      pointer-events: none;
-      position: relative;
-      &:before {
-        content: '';
-        width: 10px;
-        height: 10px;
-        border-radius: 5px;
-        background-color: #0086D3;
-        position: absolute;
-        top: 5px;
-        left: 45%;
-      }
-    }
-  }
-  &__link {
-    display: inline-block;
-    line-height: 60px;
-    text-decoration: none;
-    color: inherit;
-    transition: .2s;
-    span {
-      font-size: 1.4rem;
-    }
-  }
-}
-
-.footer {
-  display: none;
-}
-
-/* ------------------------------------ */
-/* タブレット用デザイン */
-/* ------------------------------------ */
-@media screen and (max-width: 1024px) {
-  
-
-.gnavi {
-  display: none;
-}
-
-.footer {
-  display: block;
-  margin-bottom: 48px;
-  z-index: 99999;
-}
-.global-nav {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  background: white;
-}
-.nav-list {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
-  border-collapse: collapse;
-  padding: 0;
-  list-style: none;
-  text-align: center;
-}
-.nav-item {
-  display: table-cell;
-  border: solid 1px gray;
-  padding: 4px 0px;
-}
-.nav-item a {
-  text-decoration: none;
-}
-.nav-item i {
-  color: #555;
-  display: block;
-  font-size: 24px;
-}
-.nav-item a span {
-  display: block;
-  font-size: 10px;
-}  
-  
-}
-
-/* ------------------------------------ */
-/* ▼スマホ用デザイン */
-/* ------------------------------------ */
-@media screen and (max-width: 768px) {
-  .header {
-    &__logo {
-      margin-left: 60px;
-    }
-    &__right {
-      margin-left: auto;
-      width: 200px;
+    .product-logo {
+      padding-left: 16px;
       display: flex;
-      height: 60px;
-      p {
-        width: 100%;
-        height: 60px;
-        padding: 0;
+      .logo {
+        opacity: 0;
+      }
+      a {
+        user-select: none;
+        margin-right: 16px;
+        img {
+          padding: 8px 0;
+          height: 60px;
+          width: auto;
+        }
+      }
+      p>a {
+        font-family: AmericanTypewriter, serif;
+        color: $color-header__text;
+        font-size: 1.8rem;
         line-height: 60px;
-        a {
-          font-size: 1.2rem;
+      }
+    }
+    //ここからハンバーガーメニュー
+    .ham {
+      z-index: 10000;
+      position: fixed;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      top: 10px;
+      right: 5%;
+      span {
+        position: absolute;
+        left: 5px;
+        width: 30px;
+        height: 2px;
+        background-color: $color-header__ham-icon-background;
+        transition: all 0.3s;
+        box-shadow: 1px 1px 3px $color-header__ham-icon-background;
+        &:first-child {
+          top: 5px;
+        }
+        &:nth-child(2) {
+          top: 19px;
+        }
+        &:last-child {
+          bottom: 5px;
+        }
+      }
+    }
+    .clicked span:first-child {
+      transform: rotate(45deg);
+      top: 16px;
+    }
+    .clicked span:nth-child(2) {
+      width: 0px;
+    } 
+    .clicked span:last-child {
+      transform: rotate(-45deg);
+      top: 16px;
+    }
+    //ここまでハンバーガーメニュー
+    nav.header__nav-top {
+      z-index: 100;
+      transform: translate(100%);
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: rgba($color-header__background, 0.9);
+      width: 90%;
+      height: 100vh;
+      font-size: 2.2rem;
+      opacity: 0;
+      transition-duration: 0.35s;
+      .balloon {
+        width: 100%;
+        display: flex;
+        padding: 48px 0 0;
+        margin-bottom: 32px;
+        .faceicon {
+          width: 20%;
+          position: relative;
+          margin-right: 5px;
+          h1 {
+            font-size: 1.6rem;
+            width: 80%;
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            left: 65%;
+            transform: translateY(-50%) translateX(-50%);
+          }
+        }
+        .chatting {
+          width: 80%;
+          padding: 1.6rem 1.6rem;
+          .says {
+            max-width: 400px;
+            border-radius: 1.2rem;
+            background: #D5EEFF;
+            position: relative;
+            p {
+              font-size: 1.4rem;
+              padding: 1rem 1.6rem;
+              line-height: 1.4;
+            }
+          }
+        }
+      }
+      ul {
+        padding: 0 2.4rem;
+        li {
+          margin-bottom: 2.4rem;
+          text-transform: uppercase;
+          font-size: 1.6rem;
+          a {
+            color: $color-header__text;
+          }
+          }
+          span {
+            margin-left: 1rem;
+            font-size: 1.2rem;
+          }
+        }
+      }
+      nav.header__nav-top.clicked {
+        opacity: 1;
+        transform: translate(0);
+        transition-duration: 0.35s;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    width: 100%;
+    height: 60px;
+    position: sticky;
+    z-index: 22222;
+    .header-inner {
+      width: 95%;
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      .product-logo {
+        width: 400px;
+        p > a {
+          font-size: 2.4rem;
+        }
+      }
+      .ham {
+        display: none;
+      }
+      nav.header__nav-top {
+        opacity: 1;
+        height: 60px;
+        transform: translate(0);
+        background-color: transparent;
+        font-size: 1.6rem;
+        position: static;
+        .balloon {
+          display: none;
+        }
+        .gb-menu {
+          width: auto;
+          display: flex;
+          padding: 0;
+          justify-content: flex-end;
+          position: static;
+          li {
+            height: 58px;
+            transition: .3s;
+            margin-bottom: 0;
+            &:hover {
+              text-shadow: 0 2px 2px #bbb;
+              background-color: rgba(192, 192, 192, 0.3);
+              box-shadow: 0 15px 30px -5px rgba(0,0,0,.15), 0 0 5px rgba(0,0,0,.1);
+            }
+            a {
+              display: inline-block;
+              line-height: 60px;
+              padding: 0 24px 0 ;
+              span {
+                display: none;
+              }
+            }
+          }
         }
       }
     }
   }
-  
+
 }
