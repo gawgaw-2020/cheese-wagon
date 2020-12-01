@@ -26,7 +26,7 @@
         <input type="checkbox" id="accordion-shopping">
         <label for="accordion-shopping"><p>Shopping</p></label>
         <ul class="content-list">
-          <li><a href="">カートを見る</a></li>
+          <li><a href="/cart/">カートを見る</a></li>
           <li><a href="">会員ログイン</a></li>
         </ul>
       </li>
