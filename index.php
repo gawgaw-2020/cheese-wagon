@@ -16,7 +16,7 @@ try {
     $recommendCheese .= '<li class="topitem-card">';
     $recommendCheese .= '<p class="topitem-card__image"><img src="/assets/image/item_img/'. $rec['item_image_name'] .'" alt="" width="544" height="544"></p>';
     $recommendCheese .= '<h3 class="topitem-card__title">'. $rec['item_name'] .'</h3>';
-    $recommendCheese .= '<p class="topitem-card__price label label--price">'. $rec['item_price'] .'</p>';
+    $recommendCheese .= '<p class="topitem-card__price label label--price">'. number_format($rec['item_price']) .' yen</p>';
     $recommendCheese .= '<a class="topitem-card__btn btn btn--detail" href="/products/product/index.php?item_id='. $rec['item_id'] .'">詳細</a>';
     $recommendCheese .= '</li>';
   }
@@ -30,7 +30,7 @@ try {
     $newCheese .= '<li class="new-item">';
     $newCheese .= '<a href="/products/product/index.php?item_id='. $rec['item_id'] .'">';
     $newCheese .= '<p class="new-item__image"><img src="/assets/image/item_img/'. $rec['item_image_name'] .'" alt="" width="320" height="320"></p>';
-    $newCheese .= '<p class="new-item__label label label--price">'. $rec['item_name'] .'<br>'. $rec['item_price'] .' yen</p>';
+    $newCheese .= '<p class="new-item__label label label--price">'. $rec['item_name'] .'<br>'. number_format($rec['item_price']) .' yen</p>';
     $newCheese .= '</a>';
     $newCheese .= '</li>';
   }

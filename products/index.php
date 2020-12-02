@@ -3,6 +3,32 @@
 session_start();
 define("title", "商品一覧 | チーズワゴン 自家製モッツァレラチーズと世界の厳選チーズ");
 
+try {
+
+  require_once(dirname(__FILE__) . '/../assets/functions/dbconnect.php');
+
+  $sql = 'SELECT * FROM items';
+  $allRec = $dbh->query($sql);
+  $allRec->execute();
+
+  $allCheese = "";
+  while( $rec = $allRec->fetch(PDO::FETCH_ASSOC)){ 
+    $allCheese .= '<li class="product-card">';
+    $allCheese .= '<p class="product-card__image"><img src="/assets/image/item_img/'. $rec['item_image_name'] .'" alt="" width="320" height="320"></p>';
+    $allCheese .= '<h2 class="product-card__title">'. $rec['item_name'] .'</h2>';
+    $allCheese .= '<p class="product-card__label label label--price">'. number_format($rec['item_price']) .' yen</p>';
+    $allCheese .= '<p class="product-card__text">'. $rec['item_memo'] .'</p>';
+    $allCheese .= '<a class="product-card__btn btn btn--detail" href="/products/product/index.php?item_id='. $rec['item_id'] .'">詳細を見る</a>';
+    $allCheese .= '</li>';
+  }
+  
+  $dbh = null;
+} catch (PDOException $e) {
+  print 'データベース接続エラー';
+  exit();
+}
+
+
 
 ?>
 
@@ -14,69 +40,7 @@ define("title", "商品一覧 | チーズワゴン 自家製モッツァレラ�
       <div class="section-inner">
         <h1 id="js-products__heading" class="products__heading section-heading">商品一覧</h1>
         <ul class="products__list">
-          <li class="product-card">
-            <p class="product-card__image"><img src="/assets/image/product-picture/item-sample06@2x.jpg" alt="" width="544" height="544"></p>
-            <h2 class="product-card__title">-カット済み- チーズパーティーセット</h2>
-            <p class="product-card__label label label--price">3,200 yen</p>
-            <p class="product-card__text">チーズは全てカット済み。届いたらそのままチーズパーティーにお使いいただけます。</p>
-            <a class="product-card__btn btn btn--detail" href="/products/product/">詳細を見る</a>
-          </li>
-          <li class="product-card">
-            <p class="product-card__image"><img src="/assets/image/product-picture/item-sample04@2x.jpg" alt="" width="544" height="544"></p>
-            <h2 class="product-card__title">ドイツのアルプスチーズ3種セット</h2>
-            <p class="product-card__label label label--price">3,200 yen</p>
-            <p class="product-card__text">チーズはその他の食材も世界各地もしくは全国から取り寄せました。
-              それぞれの食材を組み合わせたレシピも同封します。</p>
-            <a class="product-card__btn btn btn--detail" href="/products/product/">詳細を見る</a>
-          </li>
-          <li class="product-card">
-            <p class="product-card__image"><img src="/assets/image/product-picture/item-sample02@2x.jpg" alt="" width="544" height="544"></p>
-            <h2 class="product-card__title">イエトオスト・ブルノスト食べ比べセット</h2>
-            <p class="product-card__label label label--price">3,200 yen</p>
-            <p class="product-card__text">チーズはその他の食材も世界各地もしくは全国から取り寄せました。
-              それぞれの食材を組み合わせたレシピも同封します。</p>
-            <a class="product-card__btn btn btn--detail" href="/products/product/">詳細を見る</a>
-          </li>
-          <li class="product-card">
-            <p class="product-card__image"><img src="/assets/image/product-picture/item-sample01@2x.jpg" alt="" width="544" height="544"></p>
-            <h2 class="product-card__title">パルミジャーノづくしのこだわり贅沢セット</h2>
-            <p class="product-card__label label label--price">3,200 yen</p>
-            <p class="product-card__text">チーズはその他の食材も世界各地もしくは全国から取り寄せました。
-              それぞれの食材を組み合わせたレシピも同封します。</p>
-            <a class="product-card__btn btn btn--detail" href="/products/product/">詳細を見る</a>
-          </li>
-          <li class="product-card">
-            <p class="product-card__image"><img src="/assets/image/product-picture/item-sample03@2x.jpg" alt="" width="544" height="544"></p>
-            <h2 class="product-card__title">グラスフェッド ナチュラルチーズのギフトセット</h2>
-            <p class="product-card__label label label--price">3,200 yen</p>
-            <p class="product-card__text">チーズはその他の食材も世界各地もしくは全国から取り寄せました。
-              それぞれの食材を組み合わせたレシピも同封します。</p>
-            <a class="product-card__btn btn btn--detail" href="/products/product/">詳細を見る</a>
-          </li>
-          <li class="product-card">
-            <p class="product-card__image"><img src="/assets/image/product-picture/item-sample05@2x.jpg" alt="" width="544" height="544"></p>
-            <h2 class="product-card__title">酪農家の手作りナチュラルチーズ 5個入り ギフトセット</h2>
-            <p class="product-card__label label label--price">3,200 yen</p>
-            <p class="product-card__text">チーズはその他の食材も世界各地もしくは全国から取り寄せました。
-              それぞれの食材を組み合わせたレシピも同封します。</p>
-            <a class="product-card__btn btn btn--detail" href="/products/product/">詳細を見る</a>
-          </li>
-          <li class="product-card">
-            <p class="product-card__image"><img src="/assets/image/product-picture/item-sample07@2x.jpg" alt="" width="320" height="320"></p>
-            <h2 class="product-card__title">飛騨高山乳100%モッツアレラ＆リコッタ</h2>
-            <p class="product-card__label label label--price">3,200 yen</p>
-            <p class="product-card__text">チーズはその他の食材も世界各地もしくは全国から取り寄せました。
-              それぞれの食材を組み合わせたレシピも同封します。</p>
-            <a class="product-card__btn btn btn--detail" href="/products/product/">詳細を見る</a>
-          </li>
-          <li class="product-card">
-            <p class="product-card__image"><img src="/assets/image/product-picture/item-sample09@2x.jpg" alt="" width="320" height="320"></p>
-            <h2 class="product-card__title">リモート飲み会セット</h2>
-            <p class="product-card__label label label--price">3,200 yen</p>
-            <p class="product-card__text">チーズはその他の食材も世界各地もしくは全国から取り寄せました。
-              それぞれの食材を組み合わせたレシピも同封します。</p>
-            <a class="product-card__btn btn btn--detail" href="/products/product/">詳細を見る</a>
-          </li>
+          <?= $allCheese; ?>
         </ul>
       </div>
     </section>
