@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+session_regenerate_id(true);
+
 define("title", "会員ログイン | チーズワゴン 自家製モッツァレラチーズと世界の厳選チーズ");
 
 

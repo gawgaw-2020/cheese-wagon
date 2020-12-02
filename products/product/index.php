@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+session_regenerate_id(true);
+
 define("title", "商品詳細 | チーズワゴン 自家製モッツァレラチーズと世界の厳選チーズ");
 
 if (isset($_GET['item_id']) && is_numeric($_GET['item_id'])) {
