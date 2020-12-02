@@ -26,7 +26,7 @@
           <button class="cart__operation btn btn--operationcart">チェックした商品を削除・数量を変更する</button>
         </div>
         <div class="cart__btns">
-          <a class="btn btn--ok" href="/buy/">お会計へ進む</a>
+          <a class="btn btn--ok" href="/buy/form.php">お会計へ進む</a>
           <a class="btn btn--back" href="/products/">商品一覧へ</a>
         </div>
       </div>
