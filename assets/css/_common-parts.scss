@@ -115,6 +115,13 @@
 
 // フォームパーツ
 
+.required {
+  font-size: 1.2rem;
+  color: #ff5d5d;
+  display: inline-block;
+  margin-left: 8px;
+}
+
 .input-box {
   height: 40px;
   position: relative;

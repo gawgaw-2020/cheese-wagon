@@ -256,6 +256,13 @@ input:-webkit-autofill {
   margin-top: -160px;
 }
 
+.required {
+  font-size: 1.2rem;
+  color: #ff5d5d;
+  display: inline-block;
+  margin-left: 8px;
+}
+
 .input-box {
   height: 40px;
   position: relative;
@@ -2204,7 +2211,7 @@ footer .copyright {
 }
 
 .login-background .login-form {
-  background-color: rgba(227, 227, 227, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 4rem 2rem;
   max-width: 900px;
 }

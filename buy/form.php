@@ -23,28 +23,28 @@
         <form action="/buy/form_check.php" method="post">
           <p class="form-title label label--price">お客様情報の入力</p>
           <div class="input-box">
-            <label class="input-box__label" for="js-input-user_name">お名前</label>
+            <label class="input-box__label" for="js-input-user_name">お名前<span class="required">※必須</span></label>
             <input id="js-input-user_name" class="input-box__input" type="text" name="user_name" value="" autofocus >
           </div>
           <div class="input-box">
-            <label class="input-box__label" for="js-input-user_email">メールアドレス</label>
+            <label class="input-box__label" for="js-input-user_email">メールアドレス<span class="required">※必須</span></label>
             <input id="js-input-user_email" class="input-box__input" type="email" name="user_email" value="">
           </div>
           <div class="input-box">
-            <label class="input-box__label" for="js-input-user_postal">郵便番号</label>
+            <label class="input-box__label" for="js-input-user_postal">郵便番号<span class="required">※必須</span></label>
             <input id="js-input-user_postal" class="postal1 input-box__input" type="text" name="postal1" value="">-
             <input class="postal2 input-box__input" type="text" name="postal2" value="">
           </div>
           <div class="input-box">
-            <label class="input-box__label" for="js-input-user_address">住所</label>
+            <label class="input-box__label" for="js-input-user_address">住所<span class="required">※必須</span></label>
             <input id="js-input-user_address" class="input-box__input" type="text" name="user_address" value="">
           </div>
           <div class="input-box">
-            <label class="input-box__label" for="js-input-user_tel">電話番号</label>
+            <label class="input-box__label" for="js-input-user_tel">電話番号<span class="required">※必須</span></label>
             <input id="js-input-user_tel" class="input-box__input" type="text" name="user_tel" value="">
           </div>
           <div class="radio-box">
-            <p class="radio-box__label">注文区分</p>
+            <p class="radio-box__label">注文区分<span class="required">※必須</span></p>
             <div class="radio-box__item">
               <input class="radio-box__radio" type="radio" id="wifi1" name="wifi" value="有り">
               <label for="wifi1">今回だけの注文</label>
