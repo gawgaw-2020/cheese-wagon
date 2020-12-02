@@ -823,6 +823,7 @@
   &__btns {
     width: 90%;
     margin: 0 auto 117px;
+    flex-direction: row-reverse;
     @include mq() {
       display: flex;
       justify-content: center;
@@ -836,7 +837,7 @@
       margin-bottom: 24px;
       @include mq() {
         margin-bottom: 0;
-        margin-right: 24px;
+        margin-left: 24px;
       }  
     }
   }
@@ -845,7 +846,7 @@
 .login-background {
   background-image: url(/assets/image/common/kv-sp02@2x.jpg);
   padding: 2.5rem 0 6.5rem;
-  height: calc(100vh - 60px);
+  height: 600px;
   background-size: cover;
   .login-form {
     background-color: rgba(227, 227, 227, 0.8);
@@ -873,6 +874,97 @@
           margin: 0 auto;
         }
       }
+    }
+  }
+}
+
+.form {
+  color: #707070;
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+    .form-title {
+      font-weight: normal;
+      text-align-last: left;
+      font-size: 1.4rem;
+      padding-left: 5%;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      margin-bottom: 40px;
+      @include mq(lg) {
+        margin-left: initial;
+        margin-right: initial;
+        font-size: 1.6rem;
+        margin-bottom: 60px;
+      }
+    }
+    .input-box {
+      margin-bottom: 48px;
+      max-width: 600px;
+      @include mq(lg) {
+        margin: 0 auto 48px;
+      }
+      .postal1 {
+        text-align: center;
+        width: 60px;
+        margin-right: 8px;
+      }
+      .postal2 {
+        text-align: center;
+        margin-left: 4px;
+        width: 80px;
+      }
+    }
+    .radio-box {
+      @include mq(lg) {
+        margin-bottom: 80px;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  &__btns {
+    width: 90%;
+    margin: 0 auto 117px;
+    flex-direction: row-reverse;
+    @include mq(lg) {
+      margin-top: 80px;
+    }
+    @include mq() {
+      display: flex;
+      justify-content: center;
+    }
+    .btn {
+      @include mq() {
+        width: 35%;
+      }
+    }
+    .btn--ok {
+      width: 100%;
+      margin-bottom: 24px;
+      @include mq() {
+        width: 35%;
+        margin-bottom: 0;
+        margin-left: 24px;
+      }  
+    }
+  }
+}
+
+.form-check {
+  .user-check-list {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-wrap: wrap;
+    &__title {
+      width: 40%;
+      padding: 2rem;
+    }
+    &__data {
+      width: 60%;
+      padding: 2rem;
     }
   }
 }

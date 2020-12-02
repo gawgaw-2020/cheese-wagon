@@ -323,6 +323,125 @@ input:-webkit-autofill {
   text-align: center;
 }
 
+.radio-box {
+  position: relative;
+  margin-bottom: 30px;
+  z-index: 0;
+  border: 1px solid #ddd;
+  padding: 1.5em 1em 1em;
+  background-color: #fff;
+}
+
+.radio-box__label {
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 0 1em;
+  z-index: 801;
+  position: absolute;
+  top: -8px;
+  left: 16px;
+}
+
+.radio-box__item {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.radio-box__radio {
+  margin-bottom: 8px;
+}
+
+.registration-steps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 120px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .registration-steps {
+    padding-bottom: 10%;
+  }
+}
+
+.registration-steps_line {
+  background: #bfbfbf;
+  width: 10%;
+  height: 1px;
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .registration-steps_line {
+    display: block;
+  }
+}
+
+.registration-steps_step {
+  position: relative;
+  width: 25%;
+}
+
+.registration-steps_step > .num {
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #bfbfbf;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #bfbfbf;
+}
+
+.registration-steps_step > .text {
+  font-weight: bold;
+  width: 100%;
+  color: #bfbfbf;
+  position: absolute;
+  left: 15%;
+  top: 30px;
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .registration-steps_step > .text {
+    font-size: 1.6rem;
+  }
+}
+
+.registration-steps_step.-active > .num {
+  border-color: #978332;
+  color: #978332;
+}
+
+.registration-steps_step.-active > .text {
+  color: #978332;
+  font-weight: 700;
+}
+
 .header {
   height: 60px;
   position: -webkit-sticky;
@@ -2043,6 +2162,10 @@ footer .copyright {
 .cart__btns {
   width: 90%;
   margin: 0 auto 117px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
 }
 
 @media screen and (min-width: 768px) {
@@ -2069,14 +2192,14 @@ footer .copyright {
 @media screen and (min-width: 768px) {
   .cart__btns .btn--ok {
     margin-bottom: 0;
-    margin-right: 24px;
+    margin-left: 24px;
   }
 }
 
 .login-background {
   background-image: url(/assets/image/common/kv-sp02@2x.jpg);
   padding: 2.5rem 0 6.5rem;
-  height: calc(100vh - 60px);
+  height: 600px;
   background-size: cover;
 }
 
@@ -2117,5 +2240,131 @@ footer .copyright {
     width: 50%;
     margin: 0 auto;
   }
+}
+
+.form {
+  color: #707070;
+}
+
+.form form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form form .form-title {
+  font-weight: normal;
+  text-align-last: left;
+  font-size: 1.4rem;
+  padding-left: 5%;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 1000px) {
+  .form form .form-title {
+    margin-left: initial;
+    margin-right: initial;
+    font-size: 1.6rem;
+    margin-bottom: 60px;
+  }
+}
+
+.form form .input-box {
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+
+@media screen and (min-width: 1000px) {
+  .form form .input-box {
+    margin: 0 auto 48px;
+  }
+}
+
+.form form .input-box .postal1 {
+  text-align: center;
+  width: 60px;
+  margin-right: 8px;
+}
+
+.form form .input-box .postal2 {
+  text-align: center;
+  margin-left: 4px;
+  width: 80px;
+}
+
+@media screen and (min-width: 1000px) {
+  .form form .radio-box {
+    margin-bottom: 80px;
+  }
+}
+
+.form form .radio-box p {
+  font-size: 1.2rem;
+}
+
+.form__btns {
+  width: 90%;
+  margin: 0 auto 117px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+@media screen and (min-width: 1000px) {
+  .form__btns {
+    margin-top: 80px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .form__btns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .form__btns .btn {
+    width: 35%;
+  }
+}
+
+.form__btns .btn--ok {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .form__btns .btn--ok {
+    width: 35%;
+    margin-bottom: 0;
+    margin-left: 24px;
+  }
+}
+
+.form-check .user-check-list {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.form-check .user-check-list__title {
+  width: 40%;
+  padding: 2rem;
+}
+
+.form-check .user-check-list__data {
+  width: 60%;
+  padding: 2rem;
 }
 /*# sourceMappingURL=style.css.map */
