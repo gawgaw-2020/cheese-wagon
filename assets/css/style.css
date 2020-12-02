@@ -1968,6 +1968,12 @@ footer .copyright {
   color: #707070;
 }
 
+.cart__error {
+  text-align: center;
+  font-size: 2rem;
+  padding: 4rem 0;
+}
+
 .cart__list {
   max-width: 400px;
   margin: 0 auto 16px;
