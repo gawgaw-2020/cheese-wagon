@@ -25,6 +25,7 @@
   background-color: transparent;
   transition: .4s;
   border: 1px solid transparent;
+  // 緑のボタン
   &--ok {
     color: $color-btn-ok__text;
     background-color:$color-btn-ok__background;
@@ -33,6 +34,7 @@
       background-color: lighten($color-btn-ok__background, 15%);
     }
   }
+  // 黒いボタン
   &--back {
     color: $color-btn-back__text;
     background-color:$color-btn-back__background;
@@ -41,6 +43,7 @@
       background-color: lighten($color-btn-back__background, 15%);
     }
   }
+  // 詳細を見るボタン
   &--detail {
     color: $color-btn-detail__text;
     background-color:$color-btn-detail__background;
@@ -60,6 +63,7 @@
       left: -4%;
     }
   }
+  // カートの内容を変更するボタン
   &--operationcart {
     color: $color-btn-operationcart__text;
     background-color:$color-btn-operationcart__background;
@@ -75,6 +79,7 @@
 
 .label {
   text-align: center;
+  // 価格など
   &--price{
     color: $color-labal-detail__text;
     background-color: $color-labal-detail__background;
@@ -82,11 +87,13 @@
     font-weight: bold;
     letter-spacing: 1px;
   }
+  // フォーム画面選択中アイテム
   &--current {
     color: $color-labal-current__text;
     background-color: $color-labal-current__background;
     border: 2px solid $color-labal-current__border;
   }
+  // フォーム選択していないアイテム
   &--not-active {
     color: $color-labal-not-active__text;
     background-color: $color-labal-not-active__background;
@@ -105,6 +112,8 @@
   padding-top: 160px;
   margin-top: -160px;
 }
+
+// フォームパーツ
 
 .input-box {
   height: 40px;
