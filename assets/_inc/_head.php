@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Cheese Wagon | チーズワゴン 自家製モッツァレラチーズと世界の厳選チーズ</title>
+  <title><?php echo title; ?></title>
   <link rel="icon" href="/favicon.ico">
   <!-- OGP Tag data-->
   <meta name="twitter:card" content="summary_large_image">

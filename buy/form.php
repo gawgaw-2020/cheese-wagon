@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+define("title", "お客様情報入力 | チーズワゴン 自家製モッツァレラチーズと世界の厳選チーズ");
+
+
+?>
+
 <?php include(dirname(__FILE__).'/../assets/_inc/_head.php'); ?>
 <?php include(dirname(__FILE__).'/../assets/_inc/_header.php'); ?>
 
