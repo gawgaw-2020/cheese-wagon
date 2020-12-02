@@ -2,6 +2,8 @@
 
 session_start();
 session_regenerate_id(true);
+require_once(dirname(__FILE__) . '/../assets/functions/common.php');
+
 
 define("title", "入力内容確認 | チーズワゴン 自家製モッツァレラチーズと世界の厳選チーズ");
 

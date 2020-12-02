@@ -2,6 +2,8 @@
 
 session_start();
 session_regenerate_id(true);
+require_once(dirname(__FILE__) . '/assets/functions/common.php');
+
 
 define("title", "Cheese Wagon | チーズワゴン 自家製モッツァレラチーズと世界の厳選チーズ");
 
@@ -16,10 +18,10 @@ try {
   $recommendCheese = "";
   while( $rec = $allRec->fetch(PDO::FETCH_ASSOC)){ 
     $recommendCheese .= '<li class="topitem-card">';
-    $recommendCheese .= '<p class="topitem-card__image"><img src="/assets/image/item_img/'. $rec['item_image_name'] .'" alt="" width="544" height="544"></p>';
-    $recommendCheese .= '<h3 class="topitem-card__title">'. $rec['item_name'] .'</h3>';
-    $recommendCheese .= '<p class="topitem-card__price label label--price">'. number_format($rec['item_price']) .' yen</p>';
-    $recommendCheese .= '<a class="topitem-card__btn btn btn--detail" href="/products/product/index.php?item_id='. $rec['item_id'] .'">詳細</a>';
+    $recommendCheese .= '<p class="topitem-card__image"><img src="/assets/image/item_img/'. h($rec['item_image_name']) .'" alt="" width="544" height="544"></p>';
+    $recommendCheese .= '<h3 class="topitem-card__title">'. h($rec['item_name']) .'</h3>';
+    $recommendCheese .= '<p class="topitem-card__price label label--price">'. h(number_format($rec['item_price'])) .' yen</p>';
+    $recommendCheese .= '<a class="topitem-card__btn btn btn--detail" href="/products/product/index.php?item_id='. h($rec['item_id']) .'">詳細</a>';
     $recommendCheese .= '</li>';
   }
 
@@ -30,9 +32,9 @@ try {
   $newCheese = "";
   while( $rec = $allRec->fetch(PDO::FETCH_ASSOC)){ 
     $newCheese .= '<li class="new-item">';
-    $newCheese .= '<a href="/products/product/index.php?item_id='. $rec['item_id'] .'">';
-    $newCheese .= '<p class="new-item__image"><img src="/assets/image/item_img/'. $rec['item_image_name'] .'" alt="" width="320" height="320"></p>';
-    $newCheese .= '<p class="new-item__label label label--price">'. $rec['item_name'] .'<br>'. number_format($rec['item_price']) .' yen</p>';
+    $newCheese .= '<a href="/products/product/index.php?item_id='. h($rec['item_id']) .'">';
+    $newCheese .= '<p class="new-item__image"><img src="/assets/image/item_img/'. h($rec['item_image_name']) .'" alt="" width="320" height="320"></p>';
+    $newCheese .= '<p class="new-item__label label label--price">'. h($rec['item_name']) .'<br>'. h(number_format($rec['item_price'])) .' yen</p>';
     $newCheese .= '</a>';
     $newCheese .= '</li>';
   }
@@ -116,7 +118,7 @@ try {
                 レストラン勤務時代にチーズの魅力に取り憑かれた後、世界のチーズを求めて旅に出ました。<br>
                 世界で出会ったチーズを日本の食卓に届けるためにチーズワゴンを立ち上げ、今日も世界のどこかでチーズを選んでいます。
               </p>
-              <a class="profile-card__btn btn btn--detail" href="/products/product/">オーナーおすすめ商品</a>
+              <a class="profile-card__btn btn btn--detail" href="#">オーナーおすすめ商品</a>
             </div>
           </li>
           <li id="member02" class="profile-card anchor-sm">
@@ -131,7 +133,7 @@ try {
                 チーズワゴンでもモッツァレラチーズを製造。Webサイトも担当します。<br>
                 好きな言葉は <a href="https://gawgaw-2020.github.io/html_css01-01/" target="_blank">”Always Ask “Why me ?”</a>
               </p>
-              <a class="profile-card__btn btn btn--detail" href="/products/product/">職人おすすめ商品</a>
+              <a class="profile-card__btn btn btn--detail" href="#">職人おすすめ商品</a>
             </div>
           </li>
         </ul>
@@ -163,22 +165,10 @@ try {
         <h2 id="js-new__heading" class="new__heading section-heading">新作商品</h2>
         <ul class="new__list">
           <?= $newCheese; ?>
-          <!-- <li id="new-item01" class="new-item">
-            <a href="/products/product/">
-              <p class="new-item__image"><img src="/assets/image/product-picture/item-sample07@2x.jpg" alt="" width="320" height="320"></p>
-              <p class="new-item__label label label--price">リコッタチーズと自家製いちぢくジャムのセット<br>1,800 yen</p>
-            </a>
-          </li>
-          <li id="new-item03" class="new-item">
-            <a href="/products/product/">
-              <p class="new-item__image"><img src="/assets/image/product-picture/item-sample09@2x.jpg" alt="" width="320" height="320"></p>
-              <p class="new-item__label label label--price">ウェディングチーズケーキ（オーダーメイド）<br>21,800 yen</p>
-            </a>
-          </li> -->
         </ul>
         <div class="new__btns">
           <a class="btn btn--ok" href="/products/">商品一覧を見る</a>
-          <a class="btn btn--back" href="/products/product/">おためしセット</a>
+          <a class="btn btn--back" href="#">おためしセット</a>
         </div>
       </div>
     </section>

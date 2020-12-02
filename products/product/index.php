@@ -2,6 +2,8 @@
 
 session_start();
 session_regenerate_id(true);
+require_once(dirname(__FILE__) . '/../../assets/functions/common.php');
+
 
 define("title", "商品詳細 | チーズワゴン 自家製モッツァレラチーズと世界の厳選チーズ");
 
@@ -28,13 +30,13 @@ if (isset($_GET['item_id']) && is_numeric($_GET['item_id'])) {
   <main>
     <section class="detail">
       <div class="section-inner">
-        <h2 id="js-detail__heading" class="detail__heading section-heading"><?= $item['item_name']; ?></h2>
+        <h2 id="js-detail__heading" class="detail__heading section-heading"><?= h($item['item_name']); ?></h2>
         <div class="detail__box">
-          <p class="detail__image01"><img src="/assets/image/item_img/<?= $item['item_image_name']; ?>" alt="" width="544" height="544"></p>
+          <p class="detail__image01"><img src="/assets/image/item_img/<?= h($item['item_image_name']); ?>" alt="" width="544" height="544"></p>
           <div class="detail__right">
             <p class="detail__text01"><?= $item['item_memo']; ?></p>
-            <p class="detail__price"><?= number_format($item['item_price']); ?> yen</p>
-            <a class="detail__btn btn btn--operationcart" href="/cart/add_cart.php?item_id=<?= $item['item_id']; ?>">カートに追加する</a>
+            <p class="detail__price"><?= h(number_format($item['item_price'])); ?> yen</p>
+            <a class="detail__btn btn btn--operationcart" href="/cart/add_cart.php?item_id=<?= h($item['item_id']); ?>">カートに追加する</a>
           </div>
         </div>
         <div class="js-pulse push">
@@ -69,10 +71,10 @@ if (isset($_GET['item_id']) && is_numeric($_GET['item_id'])) {
     <section class="detail-more">
       <div class="section-inner">
         <h2 id="js-detail-more__heading" class="detail-more__heading section-heading">選択中の商品</h2>
-        <p class="detail-more__title"><?= $item['item_name']; ?></p>
-        <p class="detail-more__label label label--price"><?= number_format($item['item_price']); ?> yen</p>
-        <p class="detail-more__image"><img src="/assets/image/item_img/<?= $item['item_image_name'];; ?>" alt="" width="544" height="544"></p>
-        <a class="detail-more__btn btn btn--operationcart" href="/cart/add_cart.php?item_id=<?= $item['item_id']; ?>">カートに追加する</a>
+        <p class="detail-more__title"><?= h($item['item_name']); ?></p>
+        <p class="detail-more__label label label--price"><?= h(number_format($item['item_price'])); ?> yen</p>
+        <p class="detail-more__image"><img src="/assets/image/item_img/<?= h($item['item_image_name']); ?>" alt="" width="544" height="544"></p>
+        <a class="detail-more__btn btn btn--operationcart" href="/cart/add_cart.php?item_id=<?= h($item['item_id']); ?>">カートに追加する</a>
       </div>
     </section>
     <section class="carousel">
