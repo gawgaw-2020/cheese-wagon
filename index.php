@@ -3,6 +3,45 @@
 session_start();
 define("title", "Cheese Wagon | チーズワゴン 自家製モッツァレラチーズと世界の厳選チーズ");
 
+try {
+
+  require_once(dirname(__FILE__) . '/assets/functions/dbconnect.php');
+
+  $sql = 'SELECT * FROM items WHERE item_recommend = 1 LIMIT 6';
+  $allRec = $dbh->query($sql);
+  $allRec->execute();
+
+  $recommendCheese = "";
+  while( $rec = $allRec->fetch(PDO::FETCH_ASSOC)){ 
+    $recommendCheese .= '<li class="topitem-card">';
+    $recommendCheese .= '<p class="topitem-card__image"><img src="/assets/image/item_img/'. $rec['item_image_name'] .'" alt="" width="544" height="544"></p>';
+    $recommendCheese .= '<h3 class="topitem-card__title">'. $rec['item_name'] .'</h3>';
+    $recommendCheese .= '<p class="topitem-card__price label label--price">'. $rec['item_price'] .'</p>';
+    $recommendCheese .= '<a class="topitem-card__btn btn btn--detail" href="/products/product/index.php?item_id='. $rec['item_id'] .'">詳細</a>';
+    $recommendCheese .= '</li>';
+  }
+
+  $sql = 'SELECT * FROM items WHERE item_new = 1 ORDER BY item_date LIMIT 3';
+  $allRec = $dbh->query($sql);
+  $allRec->execute();
+
+  $newCheese = "";
+  while( $rec = $allRec->fetch(PDO::FETCH_ASSOC)){ 
+    $newCheese .= '<li class="new-item">';
+    $newCheese .= '<a href="/products/product/index.php?item_id='. $rec['item_id'] .'">';
+    $newCheese .= '<p class="new-item__image"><img src="/assets/image/item_img/'. $rec['item_image_name'] .'" alt="" width="320" height="320"></p>';
+    $newCheese .= '<p class="new-item__label label label--price">'. $rec['item_name'] .'<br>'. $rec['item_price'] .' yen</p>';
+    $newCheese .= '</a>';
+    $newCheese .= '</li>';
+  }
+  
+  $dbh = null;
+} catch (PDOException $e) {
+  print 'データベース接続エラー';
+  exit();
+}
+
+
 
 ?>
 
@@ -55,30 +94,7 @@ define("title", "Cheese Wagon | チーズワゴン 自家製モッツァレラ�
       <div class="section-inner">
         <h2 id="js-part-of-item__heading" class="part-of-item__heading section-heading">人気のチーズ</h2>
         <ul class="part-of-item__list">
-          <li class="topitem-card">
-            <p class="topitem-card__image"><img src="/assets/image/product-picture/item-sample01@2x.jpg" alt="" width="544" height="544"></p>
-            <h3 class="topitem-card__title">有機はちみつとチーズのセット</h3>
-            <p class="topitem-card__price label label--price">2,000 yen</p>
-            <a class="topitem-card__btn btn btn--detail" href="/products/product/">詳細</a>
-          </li>
-          <li class="topitem-card">
-            <p class="topitem-card__image"><img src="/assets/image/product-picture/item-sample02@2x.jpg" alt="" width="544" height="544"></p>
-            <h3 class="topitem-card__title">チーズ5種セット</h3>
-            <p class="topitem-card__price label label--price">2,200 yen</p>
-            <a class="topitem-card__btn btn btn--detail" href="/products/product/">詳細</a>
-          </li>
-          <li class="topitem-card">
-            <p class="topitem-card__image"><img src="/assets/image/product-picture/item-sample03@2x.jpg" alt="" width="544" height="544"></p>
-            <h3 class="topitem-card__title">お楽しみチーズ</h3>
-            <p class="topitem-card__price label label--price">4,000 yen</p>
-            <a class="topitem-card__btn btn btn--detail" href="/products/product/">詳細</a>
-          </li>
-          <li class="topitem-card">
-            <p class="topitem-card__image"><img src="/assets/image/product-picture/item-sample04@2x.jpg" alt="" width="544" height="544"></p>
-            <h3 class="topitem-card__title">チーズとフルーツのセット</h3>
-            <p class="topitem-card__price label label--price">3,000 yen</p>
-            <a class="topitem-card__btn btn btn--detail" href="/products/product/">詳細</a>
-          </li>
+          <?= $recommendCheese; ?>
         </ul>
         <a class="part-of-item__btn btn btn--ok" href="/products/">商品一覧を見る</a>
       </div>
@@ -144,16 +160,11 @@ define("title", "Cheese Wagon | チーズワゴン 自家製モッツァレラ�
       <div class="section-inner">
         <h2 id="js-new__heading" class="new__heading section-heading">新作商品</h2>
         <ul class="new__list">
-          <li id="new-item01" class="new-item">
+          <?= $newCheese; ?>
+          <!-- <li id="new-item01" class="new-item">
             <a href="/products/product/">
               <p class="new-item__image"><img src="/assets/image/product-picture/item-sample07@2x.jpg" alt="" width="320" height="320"></p>
               <p class="new-item__label label label--price">リコッタチーズと自家製いちぢくジャムのセット<br>1,800 yen</p>
-            </a>
-          </li>
-          <li id="new-item02" class="new-item">
-            <a href="/products/product/">
-              <p class="new-item__image"><img src="/assets/image/product-picture/item-sample08@2x.jpg" alt="" width="320" height="320"></p>
-              <p class="new-item__label label label--price">厳選チーズのホームパーティーセット<br>3,800 yen</p>
             </a>
           </li>
           <li id="new-item03" class="new-item">
@@ -161,7 +172,7 @@ define("title", "Cheese Wagon | チーズワゴン 自家製モッツァレラ�
               <p class="new-item__image"><img src="/assets/image/product-picture/item-sample09@2x.jpg" alt="" width="320" height="320"></p>
               <p class="new-item__label label label--price">ウェディングチーズケーキ（オーダーメイド）<br>21,800 yen</p>
             </a>
-          </li>
+          </li> -->
         </ul>
         <div class="new__btns">
           <a class="btn btn--ok" href="/products/">商品一覧を見る</a>

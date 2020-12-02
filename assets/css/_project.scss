@@ -201,6 +201,9 @@
       width: 100%;
       max-width: 300px;
       margin: 0 auto 64px;
+      &__title {
+        height: 60px;
+      }
       @include mq(sm) {
         padding: 0 8px;
         margin: 0 0 64px;

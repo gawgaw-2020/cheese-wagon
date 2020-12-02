@@ -3,6 +3,20 @@
 session_start();
 define("title", "商品詳細 | チーズワゴン 自家製モッツァレラチーズと世界の厳選チーズ");
 
+if (isset($_GET['item_id']) && is_numeric($_GET['item_id'])) {
+  
+  $item_id = $_GET['item_id'];
+
+  require_once(dirname(__FILE__) . '/../../assets/functions/dbconnect.php');
+  
+  $items = $dbh->prepare('SELECT * FROM items WHERE item_id = ?');
+  $items->execute(array($item_id));
+  $item = $items->fetch();
+
+  $dbh = null;
+
+}
+
 
 ?>
 
@@ -12,13 +26,13 @@ define("title", "商品詳細 | チーズワゴン 自家製モッツァレラ�
   <main>
     <section class="detail">
       <div class="section-inner">
-        <h2 id="js-detail__heading" class="detail__heading section-heading">チーズ3種と有機はちみつのセット</h2>
+        <h2 id="js-detail__heading" class="detail__heading section-heading"><?= $item['item_name'] ?></h2>
         <div class="detail__box">
-          <p class="detail__image01"><img src="/assets/image/product-picture/item-sample04@2x.jpg" alt="" width="544" height="544"></p>
+          <p class="detail__image01"><img src="/assets/image/item_img/<?= $item['item_image_name']; ?>" alt="" width="544" height="544"></p>
           <div class="detail__right">
-            <p class="detail__text01">Lorem ipsum dolor sit, amet consectetur adipisicing elitLorem ipsum dolor sit, amet consectetur adipisicing elitLorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, sint.</p>
-            <p class="detail__price">3,600 yen</p>
-            <a class="detail__btn btn btn--operationcart" href="#">カートに追加する</a>
+            <p class="detail__text01"><?= $item['item_memo'] ?></p>
+            <p class="detail__price"><?= $item['item_price'] ?> yen</p>
+            <a class="detail__btn btn btn--operationcart" href="/cart/add_cart.php?item_id=<?= $item['item_id'] ?>">カートに追加する</a>
           </div>
         </div>
         <div class="js-pulse push">
@@ -53,10 +67,10 @@ define("title", "商品詳細 | チーズワゴン 自家製モッツァレラ�
     <section class="detail-more">
       <div class="section-inner">
         <h2 id="js-detail-more__heading" class="detail-more__heading section-heading">選択中の商品</h2>
-        <p class="detail-more__title">熟成違い2種のマンチェゴセット</p>
-        <p class="detail-more__label label label--price">2,000 yen</p>
-        <p class="detail-more__image"><img src="/assets/image/product-picture/item-sample04@2x.jpg" alt="" width="544" height="544"></p>
-        <a class="detail-more__btn btn btn--operationcart" href="">カートに追加する</a>
+        <p class="detail-more__title"><?= $item['item_name'] ?></p>
+        <p class="detail-more__label label label--price"><?= $item['item_price'] ?> yen</p>
+        <p class="detail-more__image"><img src="/assets/image/item_img/<?= $item['item_image_name']; ?>" alt="" width="544" height="544"></p>
+        <a class="detail-more__btn btn btn--operationcart" href="/cart/add_cart.php?item_id=<?= $item['item_id'] ?>">カートに追加する</a>
       </div>
     </section>
     <section class="carousel">

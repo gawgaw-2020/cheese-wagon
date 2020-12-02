@@ -1197,6 +1197,10 @@ footer .copyright {
   margin: 0 auto 64px;
 }
 
+.part-of-item__list .topitem-card__title {
+  height: 60px;
+}
+
 @media screen and (min-width: 400px) {
   .part-of-item__list .topitem-card {
     padding: 0 8px;

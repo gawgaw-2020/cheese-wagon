@@ -44,8 +44,6 @@
 <script src="/assets/js/hamburger-toggle.js"></script>
 <!-- スクロール関係のイベント -->
 <script src="/assets/js/scroll.js"></script>
-<!-- ホバー関係のイベント -->
-<script src="/assets/js/hover.js"></script>
 <!-- swiper.jsの設定ファイル -->
 <script src="/assets/js/swiper.js"></script>
 <script>
