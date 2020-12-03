@@ -1,2 +1,8 @@
 assets/functions/hb.php
 assets/image
+
+/vendor/
+composer.json
+composer.lock
+buy/stripe-test.php
+buy/form_check.php

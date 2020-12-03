@@ -17,9 +17,11 @@
   <!-- fontawesome -->
   <script src="https://kit.fontawesome.com/efb98c9b55.js" crossorigin="anonymous"></script>
   <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <!-- swiperのcss -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/5.4.5/css/swiper.css">
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- Stripe -->
+  <script src="https://js.stripe.com/v3/"></script>
 </head>

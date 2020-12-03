@@ -718,7 +718,7 @@
   &__error {
     text-align: center;
     font-size: 2rem;
-    padding: 4rem 0;
+    padding: 10rem 0 20rem;
   }
   &__list {
     max-width: 400px;
@@ -891,6 +891,11 @@
   form {
     max-width: 800px;
     margin: 0 auto;
+    .form-error {
+      text-align: center;
+      color: rgb(255, 73, 73);
+      padding-bottom: 2rem;
+    }
     .form-title {
       font-weight: normal;
       text-align-last: left;

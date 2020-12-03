@@ -1971,7 +1971,7 @@ footer .copyright {
 .cart__error {
   text-align: center;
   font-size: 2rem;
-  padding: 4rem 0;
+  padding: 10rem 0 20rem;
 }
 
 .cart__list {
@@ -2266,6 +2266,12 @@ footer .copyright {
 .form form {
   max-width: 800px;
   margin: 0 auto;
+}
+
+.form form .form-error {
+  text-align: center;
+  color: #ff4949;
+  padding-bottom: 2rem;
 }
 
 .form form .form-title {

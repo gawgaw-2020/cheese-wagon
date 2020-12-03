@@ -8,6 +8,30 @@ require_once(dirname(__FILE__) . '/../assets/functions/common.php');
 define("title", "お客様情報入力 | チーズワゴン 自家製モッツァレラチーズと世界の厳選チーズ");
 
 
+// POSTで送られてきたときの処理
+if (!empty($_POST)) {
+
+  // エラーチェック
+  if ($_POST['user_name'] === '' || 15 < mb_strlen($_POST['user_name'])) {
+    $error['user_name'] = 'blank';
+  }
+  if (!filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)) {
+    $error['user_email'] = 'failed';
+  } 
+
+  if (empty($error)) {
+    $_SESSION['user_input'] = $_POST;
+    header('Location: /buy/form_check.php');
+    exit();
+  }
+
+}
+
+if ($_REQUEST['action'] === 'rewrite' && isset($_SESSION['user_input'])) {
+	$_POST = $_SESSION['user_input'];
+}
+
+
 ?>
 
 <?php include(dirname(__FILE__).'/../assets/_inc/_head.php'); ?>
@@ -32,20 +56,26 @@ define("title", "お客様情報入力 | チーズワゴン 自家製モッツ�
             <div class="text">ユーザー登録完了</div>
           </div>
         </div>
-        <form action="/buy/form_check.php" method="post">
+        <form action="" method="post">
           <p class="form-title label label--price">お客様情報の入力</p>
           <div class="input-box">
             <label class="input-box__label" for="js-input-user_name">お名前<span class="required">※必須</span></label>
             <input id="js-input-user_name" class="input-box__input" type="text" name="user_name" value="" autofocus >
+            <?php if ($error['user_name'] === 'blank'): ?>
+              <p class="form-error animate__animated animate__fadeInUp">-お名前を入力してください（15文字以内）-</p>
+            <?php endif; ?>
           </div>
           <div class="input-box">
             <label class="input-box__label" for="js-input-user_email">メールアドレス<span class="required">※必須</span></label>
             <input id="js-input-user_email" class="input-box__input" type="email" name="user_email" value="">
+            <?php if ($error['user_email'] === 'failed'): ?>
+              <p class="form-error animate__animated animate__fadeInUp">-メールアドレスを正しく入力してください-</p>
+            <?php endif; ?>
           </div>
           <div class="input-box">
             <label class="input-box__label" for="js-input-user_postal">郵便番号<span class="required">※必須</span></label>
-            <input id="js-input-user_postal" class="postal1 input-box__input" type="text" name="postal1" value="">-
-            <input class="postal2 input-box__input" type="text" name="postal2" value="">
+            <input id="js-input-user_postal" class="postal1 input-box__input" type="text" name="user_postal1" value="">-
+            <input class="postal2 input-box__input" type="text" name="user_postal2" value="">
           </div>
           <div class="input-box">
             <label class="input-box__label" for="js-input-user_address">住所<span class="required">※必須</span></label>
@@ -58,12 +88,12 @@ define("title", "お客様情報入力 | チーズワゴン 自家製モッツ�
           <div class="radio-box">
             <p class="radio-box__label">注文区分<span class="required">※必須</span></p>
             <div class="radio-box__item">
-              <input class="radio-box__radio" type="radio" id="wifi1" name="wifi" value="有り">
-              <label for="wifi1">今回だけの注文</label>
+              <input class="radio-box__radio" type="radio" id="once" name="user_order" value="once">
+              <label for="once">今回だけの注文</label>
             </div>
             <div class="radio-box__item">
-              <input class="radio-box__radio" type="radio" id="wifi2" name="wifi" value="無し">
-              <label for="wifi2">会員登録して注文</label>
+              <input class="radio-box__radio" type="radio" id="repeat" name="user_order" value="repeat">
+              <label for="repeat">会員登録して注文</label>
             </div>
             <p>会員登録して注文すると、次回からお客様情報の入力を省く事ができます</p>
           </div>
@@ -77,7 +107,7 @@ define("title", "お客様情報入力 | チーズワゴン 自家製モッツ�
             <input class="input-box__input" id="js-input-user_password2" type="password" name="user_password2" value="" autocomplete="off">
           </div>
           <div class="form__btns">
-            <button class="btn btn--ok">入力内容を確認する</button>
+            <button type="submit" class="btn btn--ok">入力内容を確認する</button>
             <a class="btn btn--back" href="/cart/">カートへ戻る</a>
           </div>
         </form>
