@@ -6,3 +6,4 @@ composer.lock
 buy/form.php
 buy/form_check.php
 buy/result.php
+buy/stripe.php

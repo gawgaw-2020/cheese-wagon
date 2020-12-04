@@ -44,8 +44,7 @@ $user_password = $_SESSION['user_input']['user_password'];
 // 以下Stripe処理
 require_once(dirname(__FILE__) . '/../vendor/autoload.php');
 
-// ご自身のAPIキーを入力
-$secretKey = 'sk_test_51Htj55FdjvdBVD7vPeqBlUwwEJquDSWefBNOgbB07nl4Un5dVkzNUH15wT0y6tVIgkP5Av1zeChAETCzpeIErIUw00kVXfFp67';
+require_once(dirname(__FILE__) . '/../buy/stripe.php');
 
 $stripe = new \Stripe\StripeClient($secretKey);
 

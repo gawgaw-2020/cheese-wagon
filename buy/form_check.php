@@ -91,9 +91,7 @@ try {
 // 以下Stripe処理
 require_once(dirname(__FILE__) . '/../vendor/autoload.php');
 
-// ご自身のAPIキーを入力
-$secretKey = 'sk_test_51Htj55FdjvdBVD7vPeqBlUwwEJquDSWefBNOgbB07nl4Un5dVkzNUH15wT0y6tVIgkP5Av1zeChAETCzpeIErIUw00kVXfFp67';
-$publicKey = 'pk_test_51Htj55FdjvdBVD7vaa492NPaq6aU6PtQI8p76qTG8aXPbGQzalPES3DJOcQGn9TaAnhmUjvqkNUeGUphfcHrgPY200a8xu5bjk';
+require_once(dirname(__FILE__) . '/../buy/stripe.php');
 
 $stripe = new \Stripe\StripeClient($secretKey);
 
