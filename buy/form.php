@@ -1,5 +1,12 @@
 <?php
 
+
+// エラーを出力する
+ini_set('display_errors', 1);	 	 
+ini_set('display_startup_errors', 1);	 	 
+error_reporting(E_ALL & ~E_NOTICE);
+
+
 session_start();
 session_regenerate_id(true);
 require_once(dirname(__FILE__) . '/../assets/functions/common.php');
@@ -48,12 +55,12 @@ if ($_REQUEST['action'] === 'rewrite' && isset($_SESSION['user_input'])) {
           <div class="registration-steps_line"></div>
           <div class="registration-steps_step">
             <div class="num">2</div>
-            <div class="text">ご注文内容確認</div>
+            <div class="text">ご注文内容の確認</div>
           </div>
           <div class="registration-steps_line"></div>
           <div class="registration-steps_step">
             <div class="num">3</div>
-            <div class="text">ユーザー登録完了</div>
+            <div class="text">ご注文結果の表示</div>
           </div>
         </div>
         <form action="" method="post">

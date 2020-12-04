@@ -122,12 +122,12 @@ $session = $stripe->checkout->sessions->create([
           <div class="registration-steps_line"></div>
           <div class="registration-steps_step -active">
             <div class="num">2</div>
-            <div class="text">ご注文内容確認</div>
+            <div class="text">ご注文内容の確認</div>
           </div>
           <div class="registration-steps_line"></div>
           <div class="registration-steps_step">
             <div class="num">3</div>
-            <div class="text">ユーザー登録完了</div>
+            <div class="text">ご注文結果の表示</div>
           </div>
         </div>
         <dl class="user-check-list">
