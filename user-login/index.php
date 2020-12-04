@@ -43,5 +43,22 @@ define("title", "会員ログイン | チーズワゴン 自家製モッツァ�
       </div>
     </section>
   </main>
+  
+  <script>
+  const passwordToggle = document.querySelector('.js-password-toggle');
+  passwordToggle.addEventListener('change', function () {
+    const password = document.querySelector('.js-password'),
+          passwordLabel = document.querySelector('.js-password-label');
+    if (password.type === 'password') {
+      password.type = 'text';
+      passwordLabel.innerHTML = '<i class="far fa-eye-slash"></i>';
+    } else {
+      password.type = 'password';
+      passwordLabel.innerHTML = '<i class="fas fa-eye"></i>';
+    }
+    password.focus();
+  });
+</script> 
+
 
 <?php include(dirname(__FILE__).'/../assets/_inc/_footer.php'); ?>
