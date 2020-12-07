@@ -82,6 +82,7 @@ try {
         </form>
         <?php endif; ?>
       </div>
+      
     </section>
   </main>
 
