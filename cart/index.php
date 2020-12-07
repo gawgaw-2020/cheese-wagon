@@ -18,19 +18,21 @@ try {
 
   require_once(dirname(__FILE__) . '/../assets/functions/dbconnect.php');
 
-  foreach ($cart as $key => $val) {
-    $sql = 'SELECT item_id, item_name, item_price, item_image_name FROM items WHERE item_id = ?';
-    $stmt = $dbh->prepare($sql);
-    $data[0] = $val;
-    $stmt->execute($data);
-  
-    $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    $item_id[] = $rec['item_id'];
-    $item_name[] = $rec['item_name'];
-    $item_price[] = $rec['item_price'];
-    $item_image_name[] = $rec['item_image_name'];
+  if (isset($cart)) {
+    foreach ($cart as $key => $val) {
+      $sql = 'SELECT item_id, item_name, item_price, item_image_name FROM items WHERE item_id = ?';
+      $stmt = $dbh->prepare($sql);
+      $data[0] = $val;
+      $stmt->execute($data);
     
+      $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+      $item_id[] = $rec['item_id'];
+      $item_name[] = $rec['item_name'];
+      $item_price[] = $rec['item_price'];
+      $item_image_name[] = $rec['item_image_name'];
+      
+    }
   }
 
   $dbh = null;
