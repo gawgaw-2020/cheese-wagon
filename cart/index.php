@@ -26,6 +26,7 @@ try {
   
     $rec = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    $item_id[] = $rec['item_id'];
     $item_name[] = $rec['item_name'];
     $item_price[] = $rec['item_price'];
     $item_image_name[] = $rec['item_image_name'];
@@ -59,7 +60,7 @@ try {
           <?php $result += $sum; ?>
             <li class="cart-item">
               <p class="cart-item__image"><img src="/assets/image/item_img/<?= h($item_image_name[$i]); ?>" alt=""></p>
-              <p class="cart-item__title"><?= h($item_name[$i]); ?></p>
+              <p class="cart-item__title"><a href="/products/product/index.php?item_id=<?= h($item_id[$i]); ?>"><?= h($item_name[$i]); ?></a></p>
               <div class="cart-item__kazu"><input type="text" name="kazu<?= $i; ?>" value="<?= $kazu[$i]; ?>">個</div>
               <p class="cart-item__price">¥ <?= h($sum); ?><br>（1個 ¥<?= h($item_price[$i]); ?>）</p>
               <div class="cart-item__delete"><label><input type="checkbox" name="sakujo<?= $i; ?>">削除</label></div>
