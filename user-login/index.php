@@ -30,7 +30,7 @@ if (!empty($_POST)) {
       // セッションを再生成
       session_regenerate_id(true);
       $_SESSION['user_login'] = 1;
-      $_SESSION['user_id'] = $rec['user_id'];
+      $_SESSION['user_id'] = $user['user_id'];
       $_SESSION['user_name'] = $rec['user_name'];
       $_SESSION["chk_ssid"]  = session_id();
 
