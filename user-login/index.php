@@ -31,7 +31,12 @@ if (!empty($_POST)) {
       session_regenerate_id(true);
       $_SESSION['user_login'] = 1;
       $_SESSION['user_id'] = $user['user_id'];
-      $_SESSION['user_name'] = $rec['user_name'];
+      $_SESSION['user_name'] = $user['user_name'];
+      $_SESSION['user_email'] = $user['user_email'];
+      $_SESSION['user_postal1'] = $user['user_postal1'];
+      $_SESSION['user_postal2'] = $user['user_postal2'];
+      $_SESSION['user_address'] = $user['user_address'];
+      $_SESSION['user_tel'] = $user['user_tel'];
       $_SESSION["chk_ssid"]  = session_id();
 
       setcookie("user_email", $_POST['user_email'], time() + 60*60*24*14, "/");
