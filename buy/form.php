@@ -67,30 +67,30 @@ if ($_REQUEST['action'] === 'rewrite' && isset($_SESSION['user_input'])) {
           <p class="form-title label label--price">お客様情報の入力</p>
           <div class="input-box">
             <label class="input-box__label" for="js-input-user_name">お名前<span class="required">※必須</span></label>
-            <input id="js-input-user_name" class="input-box__input" type="text" name="user_name" value="" autofocus >
+            <input id="js-input-user_name" class="input-box__input value-name" type="text" name="user_name" value="" autofocus >
             <?php if ($error['user_name'] === 'blank'): ?>
               <p class="form-error animate__animated animate__fadeInUp">-お名前を入力してください（15文字以内）-</p>
             <?php endif; ?>
           </div>
           <div class="input-box">
             <label class="input-box__label" for="js-input-user_email">メールアドレス<span class="required">※必須</span></label>
-            <input id="js-input-user_email" class="input-box__input" type="email" name="user_email" value="">
+            <input id="js-input-user_email" class="input-box__input value-email" type="email" name="user_email" value="">
             <?php if ($error['user_email'] === 'failed'): ?>
               <p class="form-error animate__animated animate__fadeInUp">-メールアドレスを正しく入力してください-</p>
             <?php endif; ?>
           </div>
           <div class="input-box">
             <label class="input-box__label" for="js-input-user_postal">郵便番号<span class="required">※必須</span></label>
-            <input id="js-input-user_postal" class="postal1 input-box__input" type="text" name="user_postal1" value="">-
-            <input class="postal2 input-box__input" type="text" name="user_postal2" value="">
+            <input id="js-input-user_postal" class="postal1 input-box__input value-postal1" type="text" name="user_postal1" value="">-
+            <input class="postal2 input-box__input value-postal2" type="text" name="user_postal2" value="">
           </div>
           <div class="input-box">
             <label class="input-box__label" for="js-input-user_address">住所<span class="required">※必須</span></label>
-            <input id="js-input-user_address" class="input-box__input" type="text" name="user_address" value="">
+            <input id="js-input-user_address" class="input-box__input value-address" type="text" name="user_address" value="">
           </div>
           <div class="input-box">
             <label class="input-box__label" for="js-input-user_tel">電話番号<span class="required">※必須</span></label>
-            <input id="js-input-user_tel" class="input-box__input" type="text" name="user_tel" value="">
+            <input id="js-input-user_tel" class="input-box__input value-tel" type="text" name="user_tel" value="">
           </div>
           <div class="radio-box">
             <p class="radio-box__label">注文区分<span class="required">※必須</span></p>
@@ -114,12 +114,44 @@ if ($_REQUEST['action'] === 'rewrite' && isset($_SESSION['user_input'])) {
             <input class="input-box__input" id="js-input-user_password2" type="password" name="user_password2" value="" autocomplete="off">
           </div>
           <div class="form__btns">
-            <button type="submit" class="btn btn--ok">入力内容を確認する</button>
-            <a class="btn btn--back" href="/cart/">カートへ戻る</a>
+            <button type="submit" class="btn btn--ok save-btn">入力内容を確認する</button>
+            <a class="btn btn--back save-btn" href="/cart/">カートへ戻る</a>
           </div>
         </form>
       </div>
     </section>
   </main>
+  <script>
+    $(function(){
+      // ローカルストレージへの書き込み関数
+      function setLocalStorage(key, value) {
+        localStorage.setItem(key, value);
+      }
+      
+      // ローカルストレージからの読み込み関数
+      function getLocalStorage(key) {
+        return localStorage.getItem(key);
+      }  
+    
+      // 初期表示時に前回保存された値を読み込んでセット
+      $(".value-name").val(getLocalStorage("value-name"));
+      $(".value-email").val(getLocalStorage("value-email"));
+      $(".value-postal1").val(getLocalStorage("value-postal1"));
+      $(".value-postal2").val(getLocalStorage("value-postal2"));
+      $(".value-address").val(getLocalStorage("value-address"));
+      $(".value-tel").val(getLocalStorage("value-tel"));
+    
+      // 保存ボタンクリック時の処理
+      $(".save-btn").click(function(){
+        setLocalStorage("value-name", $(".value-name").val());
+        setLocalStorage("value-email", $(".value-email").val());
+        setLocalStorage("value-postal1", $(".value-postal1").val());
+        setLocalStorage("value-postal2", $(".value-postal2").val());
+        setLocalStorage("value-address", $(".value-address").val());
+        setLocalStorage("value-tel", $(".value-tel").val());
+      });
+      
+    });
+  </script>
 
 <?php include(dirname(__FILE__).'/../assets/_inc/_footer.php'); ?>
