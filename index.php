@@ -61,7 +61,7 @@ try {
           <p class="fv-box__text">もっと身近に<br>チーズのある生活</p>
           <div class="fv-box__btns">
             <a class="fv-box__btn btn btn--ok" href="/products/">商品一覧</a>
-            <a class="fv-box__btn btn btn--back" href="/products/product/">お試しセット</a>
+            <a class="fv-box__btn btn btn--back" href="/products/product/index.php?item_id=9">季節のおすすめ</a>
           </div>
         </div>
       </div>
@@ -118,7 +118,7 @@ try {
                 レストラン勤務時代にチーズの魅力に取り憑かれた後、世界のチーズを求めて旅に出ました。<br>
                 世界で出会ったチーズを日本の食卓に届けるためにチーズワゴンを立ち上げ、今日も世界のどこかでチーズを選んでいます。
               </p>
-              <a class="profile-card__btn btn btn--detail" href="#">オーナーおすすめ商品</a>
+              <a class="profile-card__btn btn btn--detail" href="/products/product/index.php?item_id=10">オーナーおすすめ商品</a>
             </div>
           </li>
           <li id="member02" class="profile-card anchor-sm">
@@ -133,7 +133,7 @@ try {
                 チーズワゴンでもモッツァレラチーズを製造。Webサイトも担当します。<br>
                 好きな言葉は <a href="https://gawgaw-2020.github.io/html_css01-01/" target="_blank">”Always Ask “Why me ?”</a>
               </p>
-              <a class="profile-card__btn btn btn--detail" href="#">職人おすすめ商品</a>
+              <a class="profile-card__btn btn btn--detail" href="/products/product/index.php?item_id=13">職人おすすめ商品</a>
             </div>
           </li>
         </ul>
@@ -168,7 +168,7 @@ try {
         </ul>
         <div class="new__btns">
           <a class="btn btn--ok" href="/products/">商品一覧を見る</a>
-          <a class="btn btn--back" href="#">おためしセット</a>
+          <a class="btn btn--back" href="/products/product/index.php?item_id=9">季節のおすすめ</a>
         </div>
       </div>
     </section>
