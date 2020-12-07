@@ -8,6 +8,47 @@ require_once(dirname(__FILE__) . '/../assets/functions/common.php');
 define("title", "会員ログイン | チーズワゴン 自家製モッツァレラチーズと世界の厳選チーズ");
 
 
+$email = '';
+if (isset($_COOKIE['user_email'])) {
+  $email = $_COOKIE['user_email'];
+}
+
+$error['name'] = '';
+
+if (!empty($_POST)) {
+
+  if ($_POST['user_email'] !== '' && $_POST['user_password'] !== '') {
+    require_once (dirname(__FILE__) . '/../assets/functions/dbconnect.php');
+
+    $login = $dbh->prepare('SELECT * FROM users WHERE user_email=?');
+    $login->execute(array(
+      $_POST['user_email'],
+    ));
+    $user = $login->fetch();
+
+    if(password_verify($_POST['user_password'], $user['user_password'])) {
+      // セッションを再生成
+      session_regenerate_id(true);
+      $_SESSION['user_login'] = 1;
+      $_SESSION['user_id'] = $rec['user_id'];
+      $_SESSION['user_name'] = $rec['user_name'];
+      $_SESSION["chk_ssid"]  = session_id();
+
+      setcookie("user_email", $_POST['user_email'], time() + 60*60*24*14, "/");
+
+      header('Location: /index.php');
+      exit();
+
+    } else {
+      $error['login'] = 'failed';
+    }
+  } else {
+    $error['login'] = 'blank';
+  }
+}
+
+
+
 ?>
 
 <?php include(dirname(__FILE__).'/../assets/_inc/_head.php'); ?>
@@ -16,8 +57,15 @@ define("title", "会員ログイン | チーズワゴン 自家製モッツァ�
   <main class="login-background">
     <section class="login">
       <div class="section-inner">
-        <form class="login-form">
+        <form class="login-form" method="post">
           <p class="login-form__title">ログイン</p>
+          <?php if ($error['login'] === 'blank'): ?>
+            <p class="form-error animate__animated animate__fadeInUp">メールドレスまたはパスワードを入力してください</p>
+          <?php endif; ?>
+          <?php if ($error['login'] === 'failed'): ?>
+            <p class="form-error animate__animated animate__fadeInUp">メールドレスまたはパスワードを正しく入力してください</p>
+          <?php endif; ?>
+
           <div class="input-box">
             <label class="input-box__label" for="js-input-user_email">メールアドレス</label>
             <input id="js-input-user_email" class="input-box__input" type="email" name="user_email" value="" autofocus >
@@ -25,7 +73,7 @@ define("title", "会員ログイン | チーズワゴン 自家製モッツァ�
           
           <div class="input-box">
             <label class="input-box__label" for="js-input-user_password">パスワード</label>
-            <input class="field js-password input-box__input" id="js-input-user_password" type="password" name="user_password" value="" autocomplete="off" required="required">
+            <input class="field js-password input-box__input" id="js-input-user_password" type="password" name="user_password" value="" autocomplete="off">
             <div class="show-btn">
               <input class="btn-input js-password-toggle" id="eye" type="checkbox">
               <label class="btn-label js-password-label" for="eye"><i class="far fa-eye"></i></label>

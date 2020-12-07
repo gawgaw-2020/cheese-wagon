@@ -2233,6 +2233,12 @@ footer .copyright {
   }
 }
 
+.login-background .login-form .form-error {
+  text-align: center;
+  color: #ff4949;
+  padding-bottom: 2rem;
+}
+
 .login-background .login-form__title {
   margin-bottom: 40px;
 }
