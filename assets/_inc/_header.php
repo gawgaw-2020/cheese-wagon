@@ -34,7 +34,11 @@
           <li><a class="js-gb-menu-item" href="/products/" target="_self">Items<span>-商品一覧-</span></a></li>
           <li><a class="js-gb-menu-item" href="/index.php#introduce" target="_self">Concept<span>-こだわり-</span></a></li>
           <li><a class="js-gb-menu-item" href="/cart/" target="_self">Cart<span>-ショッピングカート-</span></a></li>
+        <?php if (isset($_SESSION['user_login']) === true): ?>
+          <li><a class="js-gb-menu-item" href="/user-login/logout.php">Logout<span>-ログアウト-</span></a></li>
+        <?php else: ?>
           <li><a class="js-gb-menu-item" href="/user-login/">Login<span>-会員ログイン-</span></a></li>
+        <?php endif; ?>
         </ul>
       </nav>
     </div>
