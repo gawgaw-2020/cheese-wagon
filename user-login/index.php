@@ -13,7 +13,7 @@ if (isset($_COOKIE['user_email'])) {
   $email = $_COOKIE['user_email'];
 }
 
-$error['name'] = '';
+$error['login'] = '';
 
 if (!empty($_POST)) {
 
