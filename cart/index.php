@@ -72,6 +72,9 @@ try {
             <input type="hidden" name="max" value="<?= $max; ?>">
             <button type="submit" class="cart__operation btn btn--operationcart">チェックした商品を削除・数量を変更する</button>
           </div>
+          <?php if (isset($_SESSION['user_login']) === true): ?>
+            <a href="kantan_check.php" class="label label--price">【ログイン中の方はこちら】かんたん会計へ進む</a>
+          <?php endif; ?>
           <div class="cart__btns">
             <a class="btn btn--ok" href="/buy/form.php">お会計へ進む</a>
             <a class="btn btn--back" href="/products/">商品一覧へ</a>

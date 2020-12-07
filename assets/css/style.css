@@ -2176,6 +2176,14 @@ footer .copyright {
   }
 }
 
+.cart .label {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+
 .cart__btns {
   width: 90%;
   margin: 0 auto 117px;
