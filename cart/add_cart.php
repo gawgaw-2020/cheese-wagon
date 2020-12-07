@@ -11,8 +11,7 @@ try {
     $kazu = $_SESSION['kazu'];
     // その商品が既にカートに入っていたら
     if (in_array($item_id, $cart) === true) {
-      print 'その商品はすでにカートに入っています<br>';
-      print '<a href="shop_list.php">商品一覧に戻る</a>';
+      header('Location: /cart/');
       exit();
     }
   
