@@ -1,11 +1,6 @@
 <?php
 
 
-// エラーを出力する
-ini_set('display_errors', 1);	 	 
-ini_set('display_startup_errors', 1);	 	 
-error_reporting(E_ALL & ~E_NOTICE);
-
 
 session_start();
 session_regenerate_id(true);
@@ -95,7 +90,7 @@ if ($_REQUEST['action'] === 'rewrite' && isset($_SESSION['user_input'])) {
           <div class="radio-box">
             <p class="radio-box__label">注文区分<span class="required">※必須</span></p>
             <div class="radio-box__item">
-              <input class="radio-box__radio" type="radio" id="once" name="user_order" value="once">
+              <input class="radio-box__radio" type="radio" id="once" name="user_order" value="once" checked>
               <label for="once">今回だけの注文</label>
             </div>
             <div class="radio-box__item">
