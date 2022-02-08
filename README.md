@@ -1,10 +1,20 @@
 # チーズのECサイト & 商品管理アプリ
 
-https://cheese-wagon.crap.jp/
+レストラン勤務時代の尊敬する上司が「将来大好きなチーズを輸入して売ってみたい」と休憩中に言っていたのを思い出して制作しました。
 
-<img width="1210" alt="スクリーンショット 2020-12-08 0 01 47" src="https://user-images.githubusercontent.com/70194652/101651032-f3c58d80-3a7f-11eb-87de-ac7cbd10aab6.png">
-<img width="377" alt="スクリーンショット 2020-12-08 2 20 25" src="https://user-images.githubusercontent.com/70194652/101650998-ec05e900-3a7f-11eb-9e37-3aeef5708ad7.png">
-<img width="373" alt="スクリーンショット 2020-12-08 2 19 45" src="https://user-images.githubusercontent.com/70194652/101651007-ee684300-3a7f-11eb-9890-2465fcdb183c.png">
-<img width="375" alt="スクリーンショット 2020-12-08 2 22 04" src="https://user-images.githubusercontent.com/70194652/101650986-e8726200-3a7f-11eb-9f9c-fe051b53d8a5.png">
-<img width="368" alt="スクリーンショット 2020-12-08 2 10 21" src="https://user-images.githubusercontent.com/70194652/101651027-f1fbca00-3a7f-11eb-81c7-33ffee7e807f.png">
-<img width="374" alt="スクリーンショット 2020-12-08 2 10 51" src="https://user-images.githubusercontent.com/70194652/101651016-f0320680-3a7f-11eb-8987-5982217f6681.png">
+まずAdobe XDのデザイン作成と、html / CSSの練習として静的ページを作成しました。
+
+その後、PHPの基礎も学習したので実際に、商品登録機能やカート機能など、各機能を実装しました。
+
+■ 使用技術
+
+- PHP（フレームワーク無し）
+- html/CSS/JavaScript
+- AdobeXD
+- Stripe（決済機能）
+
+■ 感想
+
+架空とはいえ、本格的なサイトのデザインは初挑戦だったので、コーディングしながら何度も作り変えました。１からサイトをデザインするのはまだ圧倒的に経験が足りませんが、「参考になるパーツを少しアレンジしながらマッチさせていくのは得意」「揃ってない、paddingが弱いなどデザインに対する違和感には気付ける」という事に気が付きました。
+
+機能面に関しては、スケジュールの都合上、在庫の概念、レビューなど普段何気なく使っている通販サイトの機能が多く、実装を見送った機能もあります。しかし、フレームワークを用いず、ログイン・カート・決済などを自分で実装できたことは良い経験になりました。
